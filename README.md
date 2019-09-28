@@ -1,1 +1,1 @@
-# Any_num_as_sum_of_three_palindromes_using_ML
+# Any num as sum of three palindromes using ML
