@@ -7,12 +7,17 @@ import requests
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import csv
+from selenium.webdriver.chrome.options import Options
 
 URL = 'http://www.rnta.eu/cgi-bin/three_palindromes/pal3.py'
 
-driver = webdriver.Chrome()
+options = Options()
+options.add_argument("--headless")
+driver = webdriver.Chrome(options=options)
+# driver = webdriver.Chrome()
 dataset = []
-for i in range(1000, 4000):
+how_many = 0
+for i in range(5500, 6000):
 
     driver.get(URL)
     writing_space = driver.find_element_by_id('number')
@@ -43,8 +48,9 @@ for i in range(1000, 4000):
 
         count += 1
     dataset.append(nums)
-
-
+    if how_many % 20 == 0:
+        print(how_many)
+    how_many += 1
 # print(dataset)
 
 with open("data.csv", "a") as csvFile:
