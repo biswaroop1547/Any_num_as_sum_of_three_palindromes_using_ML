@@ -12,7 +12,7 @@ URL = 'http://www.rnta.eu/cgi-bin/three_palindromes/pal3.py'
 
 driver = webdriver.Chrome()
 dataset = []
-for i in range(1324, 1330):
+for i in range(1000, 4000):
 
     driver.get(URL)
     writing_space = driver.find_element_by_id('number')
@@ -45,4 +45,13 @@ for i in range(1324, 1330):
     dataset.append(nums)
 
 
-print(dataset)
+# print(dataset)
+
+with open("data.csv", "a") as csvFile:
+    fields = ["Number", "First", "Second", "Third"]
+    writer = csv.DictWriter(csvFile, fieldnames=fields)
+    writer.writeheader()
+    writer.writerows(dataset)
+
+driver.close()
+csvFile.close()
