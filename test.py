@@ -17,7 +17,7 @@ driver = webdriver.Chrome(options=options)
 # driver = webdriver.Chrome()
 dataset = []
 how_many = 0
-for i in range(9000, 10000):
+for i in range(9000, 9250):
 
     driver.get(URL)
     writing_space = driver.find_element_by_id('number')
